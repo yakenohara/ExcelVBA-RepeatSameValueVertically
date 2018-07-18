@@ -1,8 +1,28 @@
-Attribute VB_Name = "同じ値を繰り返す"
+Attribute VB_Name = "RepeatSameValueVertically"
+'<License>------------------------------------------------------------
+'
+' Copyright (c) 2018 Shinnosuke Yakenohara
+'
+' This program is free software: you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation, either version 3 of the License, or
+' (at your option) any later version.
+'
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+'
+'-----------------------------------------------------------</License>
+
+'
 '選択した範囲の空白でないセル内容を、
 '空白セルにコピーする
 '
-Sub 同じ値を繰り返す_垂直()
+Sub RepeatSameValueVertically()
     
     Dim r As Range
     Dim val As Variant
@@ -23,15 +43,15 @@ Sub 同じ値を繰り返す_垂直()
     End If
     
     'シート選択状態チェック
-    If ActiveWindow.SelectedSheets.Count > 1 Then
+    If ActiveWindow.SelectedSheets.count > 1 Then
         MsgBox "複数シートが選択されています" & vbLf & _
                "不要なシート選択を解除してください"
         Exit Sub
     End If
     
     '初期化
-    numOfRows = Selection.Rows.Count
-    numOfCols = Selection.Columns.Count
+    numOfRows = Selection.Rows.count
+    numOfCols = Selection.Columns.count
     
     '実行ループ
     For colFocus = 1 To numOfCols
